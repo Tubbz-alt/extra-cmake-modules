@@ -42,6 +42,15 @@ SHA256SUMS=(
   '035ae9cb22322709824387331657ceb3b48632b518ae5a03dfe3646ea16dd497'  # pri-install-dir.patch
 )
 
+if [[ -z "$ARCH" ]]
+then
+  case "$(uname -m)" in
+    i?86) ARCH=i486 ;;
+    arm*) ARCH=arm ;;
+    *)    ARCH=$(uname -m) ;;
+  esac
+fi
+
 if [[ 'yes' == $PREBUILD ]]
 then
   test -n $UPSTREAM_URL

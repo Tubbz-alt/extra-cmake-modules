@@ -35,8 +35,13 @@ PKG="${TMP}/package-${PRGNAM}"
 OUTPUT=${OUTPUT:-/tmp}
 SLACKVER_FILE='/etc/slackware-version'
 SLACKVER=$(sed -n 's/slackware \([0-9]\+\.[0-9]\+\)$/\1/ip' $SLACKVER_FILE)
-UPSTREAM_URL="http://download.kde.org/stable/frameworks/${VERSION%.*}/${PRGNAM}-${VERSION}.tar.xz"
-SOURCE=( $(basename $UPSTREAM_URL) 'pri-install-dir.patch')
+DOWNLOADS=(
+  "http://download.kde.org/stable/frameworks/${VERSION%.*}/${PRGNAM}-${VERSION}.tar.xz"
+)
+SOURCE=(
+  $(basename ${DOWNLOADS[0]})
+  './pri-install-dir.patch'
+)
 SHA256SUMS=(
   '8a4fd5eac37d4c6a4998c48716efe2392c6f7ec9a124aab4c8fc26516815a106'  # extra-cmake-modules-5.24.0.tar.xz
   '035ae9cb22322709824387331657ceb3b48632b518ae5a03dfe3646ea16dd497'  # pri-install-dir.patch
@@ -53,8 +58,8 @@ fi
 
 if [[ 'yes' == $PREBUILD ]]
 then
-  test -n $UPSTREAM_URL
-  wget -N $UPSTREAM_URL
+  test -n ${DOWNLOADS[0]}
+  wget -N ${DOWNLOADS[0]}
 fi
 
 test ${SHA256SUMS[0]} == $(sha256sum ${SOURCE[0]} | awk '{print $1}')

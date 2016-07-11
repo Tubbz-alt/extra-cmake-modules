@@ -8,3 +8,7 @@
 *.txz
 *.tgz
 
+# tmp
+*.tar.gz
+*.tar.xz
+

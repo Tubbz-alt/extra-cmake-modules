@@ -2,7 +2,7 @@
 
 ## ABOUT
 
-This is SlackBuild for extra-cmake-modules.
+This is [SlackBuild](http://docs.slackware.com/slackware:slackbuild_scripts) for Extra Cmake Modules.
 
 See [extra-cmake-modules.info](extra-cmake-modules.info) and [slack-desc](slack-desc) for more info.
 

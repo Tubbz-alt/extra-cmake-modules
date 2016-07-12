@@ -2,7 +2,8 @@
 
 # Slackware build script for extra-cmake-modules
 
-# Copyright (c) 2016 Arondight, The Slackware Linux CN Community
+# Copyright (c) 2016 Arondight <shell_way@foxmail.com>,
+#                    The Slackware Linux CN Community
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -38,13 +39,13 @@ SLACKVER=$(sed -n 's/slackware \([0-9]\+\.[0-9]\+\)$/\1/ip' $SLACKVER_FILE)
 DOWNLOADS=(
   "http://download.kde.org/stable/frameworks/${VERSION%.*}/${PRGNAM}-${VERSION}.tar.xz"
 )
-SOURCE=(
+SOURCES=(
   $(basename ${DOWNLOADS[0]})
   './pri-install-dir.patch'
 )
-SHA256SUMS=(
-  '8a4fd5eac37d4c6a4998c48716efe2392c6f7ec9a124aab4c8fc26516815a106'  # extra-cmake-modules-5.24.0.tar.xz
-  '035ae9cb22322709824387331657ceb3b48632b518ae5a03dfe3646ea16dd497'  # pri-install-dir.patch
+MD5SUMS=(
+  'cd3b0c844234ad29cfdba89d63ccb2ae'  # extra-cmake-modules-5.24.0.tar.xz
+  '76ec20005b7a78be8ac88265b436c13a'  # pri-install-dir.patch
 )
 
 if [[ -z "$ARCH" ]]
@@ -62,10 +63,10 @@ then
   wget -N ${DOWNLOADS[0]}
 fi
 
-test ${SHA256SUMS[0]} == $(sha256sum ${SOURCE[0]} | awk '{print $1}')
-test ${SHA256SUMS[1]} == $(sha256sum ${SOURCE[1]} | awk '{print $1}')
-
-echo 123
+test -r ${SOURCES[0]}
+test -r ${SOURCES[1]}
+test ${MD5SUMS[0]} == $(md5sum ${SOURCES[0]} | awk '{print $1}')
+test ${MD5SUMS[1]} == $(md5sum ${SOURCES[1]} | awk '{print $1}')
 
 test -d $PKG && rm -rvf $PKG || :
 mkdir -pv $TMP $PKG $OUTPUT
@@ -73,10 +74,10 @@ mkdir -pv $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
 test -d "${PRGNAM}-${VERSION}" && rm -rvf "${PRGNAM}-${VERSION}" || :
-tar -Jxvf "${CWD}/${SOURCE}"
+tar -Jxvf "${CWD}/${SOURCES}"
 
 cd "${PRGNAM}-${VERSION}"
-patch -p1 -i "${CWD}/${SOURCE[1]}"
+patch -p1 -i "${CWD}/${SOURCES[1]}"
 mkdir -p ./build
 cd build
 cmake ..  \

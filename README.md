@@ -2,9 +2,9 @@
 
 ## ABOUT
 
-Extra modules and scripts for CMake.
+This is SlackBuild for extra-cmake-modules.
 
-See [extra-cmake-modules](extra-cmake-modules.info) for more info.
+See [extra-cmake-modules.info](extra-cmake-modules.info) and [slack-desc](slack-desc) for more info.
 
 ## DEPENDENCIES
 

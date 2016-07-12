@@ -1,4 +1,4 @@
-PRGNAM="Extra modules and scripts for CMake"
+PRGNAM="extra-cmake-modules"
 VERSION="5.24.0"
 HOMEPAGE="https://community.kde.org/Frameworks"
 DOWNLOAD="http://download.kde.org/stable/frameworks/5.24/extra-cmake-modules-5.24.0.tar.xz"

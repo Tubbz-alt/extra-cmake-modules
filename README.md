@@ -6,7 +6,7 @@ This is [SlackBuild](http://docs.slackware.com/slackware:slackbuild_scripts) for
 
 See [extra-cmake-modules.info](extra-cmake-modules.info) and [slack-desc](slack-desc) for more info.
 
-## DEPENDENCIES
+## REQUIRES
 
 1. [Sphinx](https://slackbuilds.org/repository/14.2/development/Sphinx/)
 

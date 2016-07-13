@@ -6,7 +6,7 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
        |-----handy-ruler------------------------------------------------------|
-extra-cmake-modules: Extra CMake Modules
+extra-cmake-modules: extra-cmake-modules (Extra modules and scripts for CMake)
 extra-cmake-modules:
 extra-cmake-modules: The Extra CMake Modules package, or ECM, adds to the modules provided by CMake,
 extra-cmake-modules: including ones used by find_package() to find common software,

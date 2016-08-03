@@ -15,6 +15,6 @@ extra-cmake-modules: perform common tasks and toolchain files that must be speci
 extra-cmake-modules: the commandline by the user.
 extra-cmake-modules:
 extra-cmake-modules:
-extra-cmake-modules:
+extra-cmake-modules: Homepage: https://community.kde.org/Frameworks
 extra-cmake-modules:
 

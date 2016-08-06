@@ -13,8 +13,10 @@ See [extra-cmake-modules.info](extra-cmake-modules.info) and [slack-desc](slack-
 ## BUILD
 
 ```
-git clone https://github.com/slackwarecn/extra-cmake-modules
+git clone https://github.com/slackwarecn-slackbuilds/extra-cmake-modules
 cd extra-cmake-modules
-PREBUILD=yes ./extra-cmake-modules.SlackBuild
+source extra-cmake-modules.info
+wget $DOWNLOAD
+./extra-cmake-modules.SlackBuild
 ```
 

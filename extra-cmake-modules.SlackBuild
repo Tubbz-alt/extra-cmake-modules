@@ -43,10 +43,6 @@ SOURCES=(
   $(basename ${DOWNLOADS[0]})
   './pri-install-dir.patch'
 )
-MD5SUMS=(
-  'cd3b0c844234ad29cfdba89d63ccb2ae'  # extra-cmake-modules-5.24.0.tar.xz
-  '76ec20005b7a78be8ac88265b436c13a'  # pri-install-dir.patch
-)
 
 if [[ -z "$ARCH" ]]
 then
@@ -56,17 +52,6 @@ then
     *)    ARCH=$(uname -m) ;;
   esac
 fi
-
-if [[ 'yes' == $PREBUILD ]]
-then
-  test -n ${DOWNLOADS[0]}
-  wget -N ${DOWNLOADS[0]}
-fi
-
-test -r ${SOURCES[0]}
-test -r ${SOURCES[1]}
-test ${MD5SUMS[0]} == $(md5sum ${SOURCES[0]} | awk '{print $1}')
-test ${MD5SUMS[1]} == $(md5sum ${SOURCES[1]} | awk '{print $1}')
 
 test -d $PKG && rm -rvf $PKG || :
 mkdir -pv $TMP $PKG $OUTPUT
